@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 217 100% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 169 100% 39%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 53%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 100% 39%;
+    --warning: 36 100% 50%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 217 100% 58%;
+
+    --radius: 0.5rem;
+
+    /* Custom Design Tokens */
+    --charcoal-deep: 0 0% 7%;
+    --charcoal-soft: 0 0% 10%;
+    --grey-light: 0 0% 88%;
+    --grey-mid: 0 0% 53%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 100% 58%) 0%, hsl(169 100% 39%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    --gradient-card: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(217 100% 58% / 0.3) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-card-hover: 0 8px 32px rgba(41, 121, 255, 0.24);
+    --shadow-button: 0 4px 12px rgba(41, 121, 255, 0.4);
+    --shadow-glow: 0 0 40px rgba(41, 121, 255, 0.4);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 217 100% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 217 100% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px];
+  }
+
+  .container-content {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1200px];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-lg;
+    @apply transition-all duration-300;
+    @apply hover:shadow-[0_4px_20px_rgba(41,121,255,0.5)];
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-foreground/30 text-foreground font-semibold px-8 py-4 rounded-lg;
+    @apply transition-all duration-300;
+    @apply hover:border-primary hover:text-primary;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-accent {
+    @apply text-foreground font-semibold px-8 py-4 rounded-lg;
+    @apply transition-all duration-300;
+    background: var(--gradient-primary);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .badge-sale {
+    @apply bg-destructive text-destructive-foreground text-xs font-bold px-2 py-1 rounded;
+  }
+
+  .badge-bestseller {
+    @apply text-xs font-bold px-2 py-1 rounded;
+    background: var(--gradient-primary);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-center text-lg max-w-2xl mx-auto mb-12;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out forwards;
+  }
+
+  .animate-slide-out-right {
+    animation: slideOutRight 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(41, 121, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(41, 121, 255, 0.6);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}

@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "react_app": {
+      "type": "react-app",
+      "settings": {}
+    }
+  },
+  "order": [
+    "react_app"
+  ]
+}

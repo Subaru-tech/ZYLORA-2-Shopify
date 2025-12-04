@@ -1,0 +1,53 @@
+{% comment %}
+  React App Section
+  This section loads the React web application built from /web folder
+{% endcomment %}
+
+<div id="root" class="react-app-wrapper"></div>
+
+{{ 'react-app.css' | asset_url | stylesheet_tag }}
+<script type="module" src="{{ 'react-app.js' | asset_url }}"></script>
+
+<style>
+  .react-app-wrapper {
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* Ensure React app takes full width */
+  #root {
+    width: 100%;
+  }
+</style>
+
+<script>
+  // Initialize React app mount point
+  document.addEventListener('DOMContentLoaded', function() {
+    // The React app will automatically mount to #root div
+    // This script ensures the container is ready
+    console.log('React App section loaded');
+  });
+</script>
+
+{% schema %}
+{
+  "name": "React App",
+  "tag": "section",
+  "class": "section-react-app",
+  "settings": [
+    {
+      "type": "header",
+      "content": "React Application"
+    },
+    {
+      "type": "paragraph",
+      "content": "This section loads the custom React web application. The React app includes the homepage, order tracking, and other custom features."
+    }
+  ],
+  "presets": [
+    {
+      "name": "React App"
+    }
+  ]
+}
+{% endschema %}
