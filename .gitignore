@@ -1,3 +1,2 @@
-# Add web/node_modules to gitignore to avoid pushing dependencies
-web/node_modules/
-web/dist/
+# Exclude React app source folder (keep only built assets in assets/)
+web/
